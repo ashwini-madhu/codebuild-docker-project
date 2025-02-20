@@ -4,10 +4,10 @@
 set -eu
 
 #login to docker hub account
-cat ~/my_password.txt | sudo docker login --username
+docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
 
 #use the docker tag command to give the image a new name
-sudo docker tag techmax 
+docker tag $IMAGE_TAG $DOCKER_USERNAME/$DOCKER_REPO_NAME
 
 #push the image to your docker hub repository
-sudo docker push 
+docker push $DOCKER_USERNAME/$DOCKER_REPO_NAME
